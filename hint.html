@@ -1,0 +1,109 @@
+<DOCTYPE html >
+<html lang="en">
+    <DOCTYPE html>
+    
+        <html lang="en">
+        
+        
+        <meta charset="UTF8">
+        <meta name="viewport" content="width=device-width, initial-scale">
+        <head>
+            <style>
+            body {
+                margin: 0; /* Elimina el margen alrededor del cuerpo */
+                height: 100vh; /* Ajusta la altura al 100% de la altura de la ventana del navegador */
+                width: 100vw; /* Ajusta el ancho al 100% de la anchura de la ventana del navegador */
+            }
+            
+            /* Media Query para pantallas con una anchura máxima de 800px */
+            @media only screen and (max-width: 600px) {
+                body {
+                    height: 100vh;
+                    width: 100vw;
+                }
+            }
+            </style>
+            <title>pract 1</title>
+            <h2>Calculo en javascript</h2>
+            <head>
+                <title>Programa en JavaScript</title>
+                <style>
+                    body {
+                        background-color: #ADD8E6;
+                    }
+                    .active {
+                        background-color: #808080;
+                    }
+                </style>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            </head>
+            <body>
+                <button id="btn1" class="active">Sección 1</button>
+                <button id="btn2">Sección 2</button>
+            
+                <div id="seccion1">
+                    <h2>Sección 1</h2>
+                    <input type="text" id="nombreGato" placeholder="Nombre del gato">
+                    <input type="number" id="edadGato" placeholder="Edad del gato en años">
+                    <input type="file" id="fotoGato">
+                    <button onclick="calcularEdadHumana()">Calcular edad humana</button>
+                    <p id="resultado1"></p>
+                    <img id="imagenGato" src="" style="display: none;">
+                </div>
+            
+                <div id="seccion2" style="display: none;">
+                    <h2>Sección 2</h2>
+                    <input type="number" id="altura" placeholder="Altura en metros">
+                    <input type="number" id="peso" placeholder="Peso en kg">
+                    <button onclick="calcularIMC()">Calcular IMC</button>
+                    <p id="resultado2"></p>
+                </div>
+            
+                <script>
+                    function calcularEdadHumana() {
+                        var edadGato = document.getElementById('edadGato').value;
+                        var nombreGato = document.getElementById('nombreGato').value;
+                        var edadHumana = 0;
+            
+                        if (edadGato == 1) {
+                            edadHumana = 15;
+                        } else if (edadGato == 2) {
+                            edadHumana = 24;
+                        } else {
+                            edadHumana = 24 + (edadGato - 2) * 4;
+                        }
+            
+                        document.getElementById('resultado1').innerHTML = "El gato " + nombreGato + " tendría " + edadHumana + " años humanos.";
+                        var reader = new FileReader();
+                        reader.onload = function (e) {
+                            $('#imagenGato').attr('src', e.target.result);
+                        }
+                        reader.readAsDataURL(document.getElementById('fotoGato').files[0]);
+                        $('#imagenGato').show();
+                    }
+            
+                    function calcularIMC() {
+                        var altura = document.getElementById('altura').value;
+                        var peso = document.getElementById('peso').value;
+                        var imc = peso / (altura * altura);
+                        document.getElementById('resultado2').innerHTML = "Tu IMC es " + imc.toFixed(2);
+                    }
+            
+                    $('#btn1').click(function() {
+                        $('#btn1').addClass('active');
+                        $('#btn2').removeClass('active');
+                        $('#seccion1').show();
+                        $('#seccion2').hide();
+                    });
+            
+                    $('#btn2').click(function() {
+                        $('#btn2').addClass('active');
+                        $('#btn1').removeClass('active');
+                        $('#seccion2').show();
+                        $('#seccion1').hide();
+                    });
+                </script>
+            </body>
+
+</html>
+</DOCTYPE>
